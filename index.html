@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GDE Solar Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Funkció, amely megjeleníti a kiválasztott szekciót
+        const szekcioMutat = (sectionId) => {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active'); // Eltávolítja az 'active' osztályt az összes szekcióból
+            });
+            // Hozzáadja az 'active' osztályt a kiválasztott szekcióhoz
+            document.getElementById(sectionId).classList.add('active');
+        };
+
+        // Funkció, amely megjeleníti vagy elrejti a szakmai tapasztalat éveinek mezőjét
+        const toggleYearsOfExperience = () => {
+            const experienceSelect = document.getElementById("experience");
+            const yearsOfExperienceDiv = document.getElementById("yearsOfExperienceDiv");
+            // Megjeleníti vagy elrejti a szakmai tapasztalat éveinek mezőjét
+            yearsOfExperienceDiv.style.display = experienceSelect.value === "nem" ? "block" : "none";
+        };
+
+        // Funkció, amely a diavetítésben lévő diák közötti váltást kezeli
+        const plusSlides = (button, n) => {
+            const presentation = button.closest('.presentation');
+            const slides = presentation.querySelectorAll('.slide');
+            // Megkeresi az aktuálisan aktív diát
+            let currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+            slides[currentIndex].classList.remove('active');
+            // Számolja az új indexet, figyelembe véve a körkörös váltást
+            currentIndex = (currentIndex + n + slides.length) % slides.length;
+            slides[currentIndex].classList.add('active');
+        };
+    </script>
+</head>
+
+<body>
+
+    <!-- Főoldal szekció -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="GDE Solar Solutions Logo">
+        </div>
+        <div>
+            <h1>GDE Solar Solutions</h1>
+            <p>Fedezd fel a fenntartható energiát a jövő számára!</p>
+        </div>
+        <div class="logo-container">
+            <img src="logo.png" alt="GDE Solar Solutions Logo">
+        </div>
+    </header>
+
+    <!-- Navigációs menü -->
+    <nav>
+        <a href="#home" onclick="szekcioMutat('home')">Főoldal</a>
+        <a href="#tortenet" onclick="szekcioMutat('tortenet')">Történetünk</a>
+        <div class="dropdown">
+            <a href="#references">Referenciák</a>
+            <div class="dropdown-content">
+                <a href="#csaladi-haz" onclick="szekcioMutat('csaladi-haz')">Családi ház</a>
+                <a href="#vallalat" onclick="szekcioMutat('vallalat')">Vállalat</a>
+                <a href="#kozintezmeny" onclick="szekcioMutat('kozintezmeny')">Közintézmény</a>
+            </div>
+        </div>
+        <a href="#projektek" onclick="szekcioMutat('projektek')">Folyamatban lévő munkák</a>
+        <a href="#csapat" onclick="szekcioMutat('csapat')">Csapatunk</a>
+        <a href="#karrier" onclick="szekcioMutat('karrier')">Karrier</a>
+        <a href="#elerhetoseg" onclick="szekcioMutat('elerhetoseg')">Elérhetőségek</a>
+    </nav>
+
+    <!-- Történetünk szekció -->
+    <section id="home" class="active">
+        <h2>Rólunk</h2>
+        <p>
+            Napelemrendszerek telepítése és fenntartható energia megoldások - ez az, amit a GDE Solar
+            Solutions nyújt.
+        </p>
+        <p>
+            Fenntarthatóság, elkötelezettség és minőség - ezek az értékek vezérelnek minket minden nap.
+        </p>
+    </section>
+
+    <!-- Történetünk szekció -->
+    <section id="tortenet">
+        <h2>Történetünk</h2>
+        <p>
+            A GDE Solar Solutions 2008-ban alakult azzal a céllal, hogy a megújuló energiaforrások piacán vezető
+            szerepet töltsön be. Az évek során jelentős fejlődésen mentünk keresztül, és ma már nem csak Magyarországon,
+            hanem Európa több országában is jelen vagyunk. Több mint 2000 telepített napelemrendszerrel a hátunk mögött,
+            büszkén mondhatjuk, hogy ügyfeleink megbíznak bennünk és az általunk nyújtott minőségben.
+        </p>
+        <p>
+            Célunk, hogy a fenntartható energiát mindenki számára elérhetővé tegyük, és hozzájáruljunk egy zöldebb,
+            tisztább jövőhöz. Minden projektünk mögött komoly tervezési és technológiai háttér áll, amely biztosítja,
+            hogy ügyfeleink a legjobb megoldásokat kapják. Akár családi házakra telepítünk napelemes rendszereket, akár
+            ipari méretű projekteken dolgozunk, minden esetben az ügyfél elégedettsége és a fenntarthatóság áll a
+            középpontban.
+        </p>
+        <p>
+            A jövőben továbbra is innovatív megoldásokkal kívánunk hozzájárulni a globális energiakihívások
+            megoldásához. Hiszünk abban, hogy a napenergia nemcsak környezetbarát, de gazdaságos megoldás is lehet mind
+            az egyének, mind a vállalatok számára. Büszkék vagyunk arra, hogy folyamatosan fejlődünk és új
+            technológiákat vezetünk be, amelyekkel ügyfeleink számára megbízható és fenntartható megoldásokat
+            kínálhatunk.
+        </p>
+    </section>
+
+    <!-- Családi ház szekció -->
+    <section id="csaladi-haz">
+        <div class="presentation">
+            <h2>Családi házak</h2>
+            <div class="slides">
+                <div class="slide active">
+                    <h3>Zöld Lakópark – Nagy Katalin</h3>
+                    <p>Projekt leírás: Egy 5 kW-os monokristályos napelemes rendszert telepítettünk, amely optimalizálóval
+                        van felszerelve. Az inverter folyamatosan figyeli az árnyékhatást és maximalizálja a termelést.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „Nagyon elégedett vagyok a telepítéssel.”</p>
+                    <div class="image-slide">
+                        <img src="solar-house1.jpg" alt="Zöld Lakópark - Nagy Katalin" />
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>Napfény Ház – Szabó család</h3>
+                    <p>Projekt leírás: Egy 7 kW-os polikristályos napelemrendszert építettünk ki, valós idejű monitoringgal.
+                        A rendszer része egy 10 kWh-s akkumulátor is, amely tárolja az energiát.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „A monitoring rendszer különösen hasznos.”</p>
+                    <div class="image-slide">
+                        <img src="solar-house2.jpg" alt="Napfény Ház - Szabó család" />
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>Hegyvidéki otthon – Tóth család</h3>
+                    <p>Projekt leírás: Egy 6 kW-os napelemes rendszert telepítettünk, amely hőtárolóval van integrálva,
+                        biztosítva a fűtési és melegvíz-ellátást.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „Az új rendszer rendkívül hatékony.”</p>
+                    <div class="image-slide">
+                        <img src="solar-house3.jpg" alt="Hegyvidéki otthon - Tóth család" />
+                    </div>
+                </div>
+            </div>
+            <span class="navi">
+                <button class="prev" onclick="plusSlides(this, -1)">Előző</button>
+                <button class="next" onclick="plusSlides(this, 1)">Következő</button>
+            </span>
+        </div>
+    </section>
+
+    <!-- Vállalat szekció -->
+    <section id="vallalat">
+        <div class="presentation">
+            <h2>Vállalatok</h2>
+            <div class="slides">
+                <div class="slide active">
+                    <h3>Tech Innov Ltd.</h3>
+                    <p>Projekt leírás: Egy 50 kW-os rendszer, amely integrált energiatárolóval működik, az irodaépület
+                        energiaigényének 60%-át fedezi.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „Jelentős megtakarítást eredményezett.”</p>
+                    <div class="image-slide">
+                        <img src="solar-company1.jpg" alt="Tech Innov Ltd." />
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>GreenWorks Zrt.</h3>
+                    <p>Projekt leírás: 100 kW-os moduláris rendszer, amely lehetővé teszi az energiahatékonyság növelését és
+                        a cég fenntarthatósági céljainak teljesítését.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „A rendszer teljesítménye meghaladta a várakozásainkat.”</p>
+                    <div class="image-slide">
+                        <img src="solar-company2.jpg" alt="GreenWorks Zrt." />
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>EcoTransport Kft.</h3>
+                    <p>Projekt leírás: 200 kW-os napelemes rendszer, amely az elektromos járművek töltéséhez is energiát
+                        biztosít.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „A projekt mérföldkő volt a fenntarthatósági céljaink
+                        elérésében.”</p>
+                    <div class="image-slide">
+                        <img src="solar-company3.jpg" alt="EcoTransport Kft." />
+                    </div>
+                </div>
+            </div>
+            <span class="navi">
+                <button class="prev" onclick="plusSlides(this, -1)">Előző</button>
+                <button class="next" onclick="plusSlides(this, 1)">Következő</button>
+            </span>
+        </div>
+    </section>
+
+    <!-- Közintézmény szekció -->
+    <section id="kozintezmeny">
+        <div class="presentation">
+            <h2>Közintézmények</h2>
+            <div class="slides">
+                <div class="slide active">
+                    <h3>Budai Általános Iskola</h3>
+                    <p>Projekt leírás: 30 kW-os rendszer, amely az iskola energiaigényének jelentős részét fedezi,
+                        energiatárolóval kiegészítve.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „Az új napelemrendszer csodálatos.”</p>
+                    <div class="image-slide">
+                        <img src="solar-school1.jpg" alt="Budai Általános Iskola" />
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>Pécsi Egyetemi Könyvtár</h3>
+                    <p>Projekt leírás: 40 kW-os rendszer, amely a könyvtár digitális infrastruktúráját látja el energiával,
+                        energiatárolási megoldással.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „Az energiatárolási rendszer megbízhatósága növelte az
+                        intézmény működését.”</p>
+                    <div class="image-slide">
+                        <img src="solar-school2.jpg" alt="Pécsi Egyetemi Könyvtár" />
+                    </div>
+                </div>
+                <div class="slide">
+                    <h3>Debreceni Városi Kórház</h3>
+                    <p>Projekt leírás: 60 kW-os napelemes rendszer, amely a kórház energiaigényének jelentős részét
+                        biztosítja.</p>
+                    <p><strong>Ügyfél visszajelzés:</strong> „A napelemes rendszer költségeinket csökkentette, és környezeti
+                        hatásunkat minimalizálta.”</p>
+                    <div class="image-slide">
+                        <img src="solar-school3.jpg" alt="Debreceni Városi Kórház" />
+                    </div>
+                </div>
+            </div>
+            <span class="navi">
+                <button class="prev" onclick="plusSlides(this, -1)">Előző</button>
+                <button class="next" onclick="plusSlides(this, 1)">Következő</button>
+            </span>
+        </div>
+    </section>
+
+    <!-- Folyamatban lévő munkák szekció -->
+    <section id="projektek">
+        <h2>Folyamatban lévő munkák</h2>
+        <div class="project">
+            <div class="project-box">
+                <img src="green-valley-solar-park.png" alt="Green Valley Solar Park Project">
+                <h3>Green Valley Solar Park</h3>
+                <p>Egy 50 MW teljesítményű napelempark építése, amely több ezer háztartás energiaellátását fogja
+                    biztosítani.</p>
+            </div>
+            <div class="project-box">
+                <img src="urban-solar-rooftop.png" alt="Urban Solar Rooftop Program">
+                <h3>Urban Solar Rooftop Program</h3>
+                <p>Városi tetőkre telepítünk napelemes rendszereket, több mint 100 épületre kiterjedő program.</p>
+            </div>
+            <div class="project-box">
+                <img src="solar-highway.png" alt="Solar Highway Initiative">
+                <h3>Solar Highway Initiative</h3>
+                <p>Napelemrendszerek az ország autópályái mentén, amelyek az elektromos autók töltését támogatják.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Csapatunk szekció -->
+    <section id="csapat">
+        <h2>Csapatunk</h2>
+        <div class="csapat-tag">
+            <h3>Bóta Tamás</h3>
+            <p>Bóta Tamás a műszaki vezető, aki a napelem rendszerek telepítéséért és a technológiai megoldásokért felel.
+            </p>
+        </div>
+        <div class="csapat-tag">
+            <h3>Waller Adrián</h3>
+            <p>Waller Adrián a projektmenedzser, aki a napelemparkok építésének felügyeletét végzi, és biztosítja a határidők
+                betartását.</p>
+        </div>
+        <div class="csapat-tag">
+            <h3>Kadlecsik Zoltán</h3>
+            <p>Kadlecsik Zoltán az értékesítési igazgató, aki az új ügyfelekkel való kapcsolattartásért és az üzleti lehetőségek
+                bővítéséért felelős.</p>
+        </div>
+    </section>
+
+    <!-- Karrier szekció -->
+    <section id="karrier">
+        <h2>Karrier</h2>
+        <p>Csatlakozz hozzánk, és építsd a fenntartható jövőt a GDE Solar Solutions csapatával...</p>
+
+        <div class="pozicio">
+            <h3>Tervező mérnök</h3>
+            <p>Feladatok: Mérnöki tervezés, rendszerfejlesztés, és a hatékonyság növelése. Elvárások: Villamosmérnöki
+                vagy energetikai mérnöki végzettség, legalább 3 év tapasztalat hasonló területen.</p>
+        </div>
+
+        <div class="pozicio">
+            <h3>Projektmérnök</h3>
+            <p>Feladatok: Napelemparkok telepítési projektjeinek irányítása, helyszíni kivitelezések koordinálása.
+                Elvárások: Villamosmérnöki végzettség, legalább 2 év tapasztalat a projektmenedzsmentben.</p>
+        </div>
+
+        <div class="pozicio">
+            <h3>Gyakornok (megújuló energia)</h3>
+            <p>Feladatok: Napelem rendszerek telepítésének támogatása, tervezési és karbantartási feladatok segítése.
+                Elvárások: Villamosmérnöki vagy energetikai tanulmányok, érdeklődés a megújuló energia iránt.</p>
+        </div>
+
+        <!-- Jelentkezési űrlap -->
+        <h3>Jelentkezés űrlap</h3>
+        <form>
+            <label for="name">Teljes név:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="phone">Telefonszám:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+
+            <label for="position">Választott pozíció:</label>
+            <select id="position" name="position" required>
+                <option value="tervező mérnök">Tervező mérnök</option>
+                <option value="projektmérnök">Projektmérnök</option>
+                <option value="gyakornok">Gyakornok (megújuló energia)</option>
+            </select><br><br>
+
+            <label for="education">Legmagasabb végzettség:</label>
+            <select id="education" name="education" required>
+                <option value="középfokú">Középfokú</option>
+                <option value="felsőfokú">Felsőfokú</option>
+                <option value="mesterszintű">Mesterszintű</option>
+                <option value="doktori">Doktori</option>
+            </select><br><br>
+
+            <label for="experience">Pályakezdő vagy?</label>
+            <select id="experience" name="experience" required onchange="toggleYearsOfExperience()">
+                <option value="igen">Igen</option>
+                <option value="nem">Nem</option>
+            </select><br><br>
+
+            <div id="yearsOfExperienceDiv">
+                <label for="years_of_experience">Szakmai tapasztalat évei:</label>
+                <input type="number" id="years_of_experience" name="years_of_experience" min="0"><br><br>
+            </div>
+
+            <label for="motivation">Miért szeretnél csatlakozni hozzánk?</label><br>
+            <textarea id="motivation" name="motivation" rows="5" cols="40" required></textarea><br><br>
+
+            <label for="availability">Mikor tudnál kezdeni?</label>
+            <input type="date" id="availability" name="availability" required><br><br>
+
+            <input type="submit" value="Jelentkezés">
+        </form>
+
+        <p>Jelentkezés: Küldd el az űrlapot, és csatlakozz egy dinamikusan fejlődő csapathoz!</p>
+    </section>
+
+    <!-- Elérhetőségek szekció -->
+    <section id="elerhetoseg">
+        <h2>Elérhetőségek</h2>
+        <p>Email: <a href="mailto:info@gdesolar.com">info@gdesolar.com</a></p>
+        <p>Telefon: +36 30 123 4567</p>
+        <p>Cím: Gellért-hegy, 1118 Budapest, Magyarország</p>
+
+        <!-- Térkép beágyazása -->
+        <div class="map-container">
+            <iframe
+                title="Helyszín Térkép"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10717.203707373615!2d19.0362127!3d47.4850368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc35e5be10c1%3A0x2a14357e939dcdf5!2sGell%C3%A9rt%20Hill!5e0!3m2!1sen!2shu!4v1600346109830!5m2!1sen!2shu"
+                allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </section>
+
+    <!-- Lábléc -->
+    <footer>
+        <p>© 2024 GDE Solar Solutions</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* Alapértelmezett stílusok a body elemhez */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Fejléc stílusai */
+header {
+    background-color: #1a1a1a;
+    color: white;
+    min-height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 0 50px;
+    position: relative;
+}
+
+/* Fejléc címsor stílusai */
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* Fejléc bekezdés stílusai */
+header p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+/* Navigációs sáv stílusai */
+nav {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Navigációs linkek stílusai */
+nav a {
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navigációs linkek hover stílusai */
+nav a:hover {
+    background-color: #1a1a1a;
+    color: #ff6600;
+}
+
+/* Legördülő menü stílusai */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Legördülő menü tartalom stílusai */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Legördülő menü linkek stílusai */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Legördülő menü linkek hover stílusai */
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+/* Legördülő menü hover stílusai */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Szekciók stílusai */
+section {
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 1000px;
+    display: none;
+    border-bottom: 1px solid #333;
+}
+
+/* Aktív szekció stílusai */
+section.active {
+    display: block;
+}
+
+/* Szekció címsor stílusai */
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Logó konténer stílusai */
+.logo-container {
+    width: 200px;
+    height: auto;
+    text-align: center;
+}
+
+/* Logó kép stílusai */
+.logo-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Projekt stílusai */
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* Projekt doboz stílusai */
+.project-box {
+    width: 30%;
+    background-color: #eaeaea;
+    padding: 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Projekt kép stílusai */
+.project img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Lábléc stílusai */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Speciális lista stílusai */
+ul.specialty-list {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+/* Álláshirdetés és csapattag stílusai */
+.pozicio, .csapat-tag {
+    margin-top: 20px;
+    background-color: #eaeaea;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Álláshirdetés címsor stílusai */
+.pozicio h3 {
+    margin: 0;
+}
+
+/* Űrlap stílusai */
+form {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Űrlap címke stílusai */
+form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Űrlap bemeneti mezők stílusai */
+form input[type="text"], 
+form input[type="email"],
+form input[type="tel"], 
+form input[type="date"], 
+form input[type="number"], 
+form select, 
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Űrlap textarea stílusai */
+form textarea {
+    resize: vertical;
+}
+
+/* Űrlap beküldés gomb stílusai */
+form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Űrlap beküldés gomb hover stílusai */
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Térkép konténer stílusai */
+.map-container {
+    margin-top: 30px;
+}
+
+/* Iframe stílusai */
+iframe {
+    border: none;
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+/* A tapasztalti éveknek kell */
+#yearsOfExperienceDiv {
+    display: none;
+}
+
+/* Slide-ok alapértelmezett stílusai */
+div.slide {
+    display: none;
+}
+
+/* Láthatóság beállítása a slide és active osztályokkal rendelkező div-hez */
+div.slide.active {
+    display: block;
+    animation: slideIn 0.5s forwards;
+}
+
+/* Slide-in animáció definiálása */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Prezentáció slide rész stílusai */
+div.slides {
+    border: 2px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    height: 450px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Prezentáció címe legyen középen */
+div.presentation h2 {
+    text-align: center;
+}
+
+/* A prezentációt vezérlő gombok is legyenek középen */
+span.navi {
+    display: flex;
+    justify-content: center;
+}
+
+/* Kép konténer a konténerhez igazítva, figyelembe véve más elemeket is */
+div.image-slide {
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;     /* Center the image vertically */
+    overflow: hidden;
+}
+
+/* Kép méretezése a konténerhez igazítva, figyelembe véve más elemeket is */
+div.image-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Dobozok stílusa, amely tartalmazza a képet és a leírást */
+div.slides {
+    width: 90%; /* A szélesség növelése */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; /* A magasság automatikusan igazodik a tartalomhoz */
+}
+
+/* Kép megfelelő beállítása, hogy elférjen a dobozban */
+div.image-slide {
+    flex-shrink: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-height: 500px; /* Maximum magasság a képnek */
+}
+
+div.image-slide img {
+    width: auto;
+    height: 100%;
+    object-fit: cover; /* A kép szépen illeszkedik a dobozhoz, anélkül hogy torzulna */
+}
+
+/* Diavetítés vezérlőgombok stílusa */
+.navi button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navi button:hover {
+    background-color: #ff6600;
+}
+
+/* Diavetítés vezérlőgombok stílusa, a többi menüponttal megegyezően */
+.navi button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    text-transform: none; /* Nincs csupa nagybetű */
+}
+
+/* Hover állapot */
+.navi button:hover {
+    background-color: #1a1a1a;
+    color: #ff6600;
+}
+
+/* Adjustments for images in slide presentations */
+.presentation .image-slide img {
+    width: 100%;
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
+    max-height: 500px; /* Prevent images from becoming too large for their containers */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Ensure the presentation containers dynamically adjust to the image size */
+.presentation {
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
